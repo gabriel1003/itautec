@@ -1,25 +1,20 @@
 function validate() {
       
   if( document.myForm.Name.value == "" ) {
-     alert( "Please provide your name!" );
+     alert( "Nome obrigatório" );
      document.myForm.Name.focus() ;
      return false;
   }
   if( document.myForm.EMail.value == "" ) {
-     alert( "Please provide your Email!" );
+     alert( "Email obrigatório" );
      document.myForm.EMail.focus() ;
      return false;
   }
-  if( document.myForm.Zip.value == "" || isNaN( document.myForm.Zip.value ) ||
-     document.myForm.Zip.value.length != 5 ) {
-     
-     alert( "Please provide a zip in the format #####." );
-     document.myForm.Zip.focus() ;
+  if( document.myForm.Genero.value == "-1" ) {
+     alert( "Gênero obrigatório" );
      return false;
   }
-  if( document.myForm.Country.value == "-1" ) {
-     alert( "Please provide your country!" );
-     return false;
-  }
+
+  alert( "Mensagem enviada com sucesso" );
   return( true );
 }
