@@ -1,0 +1,60 @@
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        
+        body {
+            background-color: rgb(245, 245, 245);
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 16px;
+        }
+        /*Tronado o site responsivo*/
+        
+        main {
+            border-radius: 30px;
+            background-color: rgba(228, 226, 226, 0.972);
+            min-width: 320px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        
+        img {
+            width: 100%;
+            border-radius: 10px;
+            border: 4px solid rgb(19, 63, 209);
+            padding: 5px;
+        }
+        /* formatação do menu*/
+        
+        nav#menu {
+            display: block;
+        }
+        
+        #menu ul {
+            list-style: none;
+            text-transform: uppercase;
+            position: relative;
+            top: 0;
+            left: 250px;
+        }
+        
+        #menu li {
+            display: inline-block;
+            background-color: rgb(243, 242, 242);
+            padding: 10px;
+            margin: 2px;
+            transition: background-color 1s;
+        }
+        
+        #menu li:hover {
+            background-color: rgb(185, 228, 230);
+        }
+        
+        #menu a {
+            color: black;
+            text-decoration: none;
+        }
+        
+        #menu a:hover {
+            color: indianred;
+        }

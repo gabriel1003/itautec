@@ -1,0 +1,32 @@
+body {
+    background-color: gray;
+    font-size: 16pt;
+    font-style: none;
+    font-family: Arial;
+}
+
+.artigos {
+    background-color: rgba(127, 147, 192, 0.493);
+}
+
+.menu li {
+    list-style: none;
+    border: 1px solid #bbbfb8;
+    float: left;
+    border-right: 1px solid green;
+}
+
+.menu li a {
+    color: yellow;
+    text-decoration: none;
+    padding: 10px 10px 10px 10px;
+    display: block;
+}
+
+.menu li a:hover {
+    background: rgba(12, 9, 9, 0.801);
+    color: rgba(255, 255, 255, 0.849);
+    -moz-box-shadow: 0 3px 10px 0 #CCC;
+    -webkit-box-shadow: 0 3px 10px 0 #ccc;
+    text-shadow: 0px 0px 5px #fff;
+}
