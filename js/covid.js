@@ -1,5 +1,52 @@
-function validate() {
-      
+window.addEventListener('load', () => {
+   function ObterTamanhoFonte(seletorComClasseAcessibilidade) {
+       let tamanho = window.getComputedStyle(seletorComClasseAcessibilidade, null)
+                       .getPropertyValue('font-size');
+       return parseFloat(tamanho);
+   }
+
+   function ControlaTamanhoElementos(seletoresComClasseAcessibilidade, aumentar, normal)
+   {
+       for (let i = 0; i < seletoresComClasseAcessibilidade.length; i++) {
+           const element = seletoresComClasseAcessibilidade[i];      
+           let fontSizeAtual = 0;
+
+           if (normal)
+           {
+               element.style.fontSize = '1em';
+           }
+           else
+           {        
+               if (aumentar)
+                   fontSizeAtual = ObterTamanhoFonte(element) + 1;
+               else
+                   fontSizeAtual = ObterTamanhoFonte(element) - 1;            
+
+               element.style.fontSize = fontSizeAtual.toString() + 'px'; 
+           }
+       } 
+   }
+
+   document.querySelector('#increase-plugin-ac').addEventListener('click', e => {
+       let acessibilidade = document.getElementsByClassName('accessibility-plugin-ac');
+       ControlaTamanhoElementos(acessibilidade, true);
+   });
+
+   document.querySelector('#normal-plugin-ac').addEventListener('click', e => {
+       let acessibilidade = document.getElementsByClassName('accessibility-plugin-ac');
+       ControlaTamanhoElementos(acessibilidade, null, true);
+   });
+
+   document.querySelector('#decrease-plugin-ac').addEventListener('click', e => {
+       let acessibilidade = document.getElementsByClassName('accessibility-plugin-ac');
+       ControlaTamanhoElementos(acessibilidade, false);
+   });
+});
+
+
+
+
+function validate() { 
   if( document.myForm.Name.value == "" ) {
      alert( "Nome obrigatório" );
      document.myForm.Name.focus() ;
@@ -17,50 +64,4 @@ function validate() {
 
   alert( "Mensagem enviada com sucesso" );
   return( true );
-}
-
-function IncreaseHeader(){
-	//Get the tag you want to change
-	var headerTag = document.getElementById('acessibilidade');
-	
-	// Get the current font size
-	var currentFontSize = headerTag.style.fontSize;
-	
-	//Take out the px in the end
-	currentFontSize = currentFontSize.slice(0, -2);
-	
-	//Make currenFontSize an Integer
-	currentFontSize = parseInt(currentFontSize);
-	
-	//Make new font size while increase currenFontSize by 1
-	var newFontSize = currentFontSize + 1;
-	
-	//Make newFontsize a string and add px in the end
-	newFontSize = newFontSize.toString() + "px";
-	
-	//Set new style
-	headerTag.style.fontSize = newFontSize;
-}
-
-function DecreaseHeader(){
-	//Get the tag you want to change
-	var headerTag = document.getElementById('acessibilidade');
-	
-	// Get the current font size
-	var currentFontSize = headerTag.style.fontSize;
-	
-	//Take out the px in the end
-	currentFontSize = currentFontSize.slice(0, -2);
-	
-	//Make currenFontSize an Integer
-	currentFontSize = parseInt(currentFontSize);
-	
-	//Make new font size while decrease currenFontSize by 1
-	var newFontSize = currentFontSize - 1;
-	
-	//Make newFontsize a string and add px in the end
-	newFontSize = newFontSize.toString() + "px";
-	
-	//Set new style
-	headerTag.style.fontSize = newFontSize;
 }
